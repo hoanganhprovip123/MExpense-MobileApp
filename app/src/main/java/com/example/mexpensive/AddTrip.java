@@ -32,14 +32,15 @@ public class AddTrip extends AppCompatActivity implements View.OnClickListener {
     EditText endDate;
     EditText name;
     EditText vehicle;
-    Switch swRisk;
 
-    Button btnSave1;
-    Button btnClose;
-    List<Expense> expenseList;
-    List<Trip> tripList;
-    ListView lvTrip;
-    TripAdapter tripAdapter;
+//    Button btnSave1;
+//    Button btnClose;
+//    List<Expense> expenseList;
+//    List<Trip> tripList;
+//    ListView lvTrip;
+//    TripAdapter tripAdapter;
+
+
     boolean isEdit = false;
 
     @Override

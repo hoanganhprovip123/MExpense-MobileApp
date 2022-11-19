@@ -16,7 +16,7 @@ public class Trip {
                 String startDate, String endDate, String description, String vehicle) {
 
         this.tripId = tripId;
-        TripName = tripName;
+        this.TripName = tripName;
         this.destination = destination;
         this.startDate = startDate;
         this.endDate = endDate;

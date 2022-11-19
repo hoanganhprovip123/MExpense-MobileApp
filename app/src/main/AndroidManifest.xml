@@ -14,7 +14,13 @@
         android:theme="@style/Theme.Mexpensive"
         tools:targetApi="31">
         <activity
-            android:name=".Cost"
+            android:name=".ExpenseDetail"
+            android:exported="false" />
+        <activity
+            android:name=".AddExpense"
+            android:exported="false" />
+        <activity
+            android:name=".DetailTrip"
             android:exported="false" />
         <activity
             android:name=".ShowTrip"

@@ -69,4 +69,8 @@ public class TripDAO {
         String sql = "SELECT * FROM Trip";
         return get(sql);
     }
+
+    public int delete(String name) {
+        return db.delete("Trip", "tripName =? ", new String[]{name});
+    }
 }

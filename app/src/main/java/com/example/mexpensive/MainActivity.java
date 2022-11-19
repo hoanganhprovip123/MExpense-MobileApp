@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnCost = findViewById((R.id.btnExp));
         btnCost.setOnClickListener((View -> {
-            startActivity((new Intent(MainActivity.this, Cost.class)));
+            startActivity((new Intent(MainActivity.this, AddExpense.class)));
         }));
     }
 }

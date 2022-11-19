@@ -1,5 +1,6 @@
 package com.example.mexpensive;
 
+import androidx.annotation.BinderThread;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
@@ -42,7 +43,7 @@ public class AddTrip extends AppCompatActivity implements View.OnClickListener {
 
 
     boolean isEdit = false;
-
+    Button btnSave;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +53,7 @@ public class AddTrip extends AppCompatActivity implements View.OnClickListener {
         destination = findViewById(R.id.inputDestination);
         startDate = findViewById(R.id.inputStartDate);
         vehicle = findViewById(R.id.inputVehicle);
+        description = findViewById(R.id.inputDescription);
         startDate.setOnFocusChangeListener((view, b) -> {
             if(b){
                 MyDatePicker dlg = new MyDatePicker();
@@ -69,6 +71,7 @@ public class AddTrip extends AppCompatActivity implements View.OnClickListener {
 
             }
         });
+        findViewById(R.id.btnSave).setOnClickListener(this);
     }
 
     @Override
@@ -83,11 +86,11 @@ public class AddTrip extends AppCompatActivity implements View.OnClickListener {
                 trip.setVehicle(vehicle.getText().toString());
                 trip.setDescription(description.getText().toString());
                 if(name.getText().toString().equals("") && destination.getText().toString().equals("") && startDate.getText().toString().equals("")){
-                    Toast.makeText(this,"Please input information ",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddTrip.this,"Please input information ",Toast.LENGTH_SHORT).show();
                 } else{
                     TripDAO dao = new TripDAO(this);
                     dao.insertTrip(trip);
-                    Toast.makeText(this,"Save",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddTrip.this,"Save",Toast.LENGTH_SHORT).show();
                 }
                 break;
         }

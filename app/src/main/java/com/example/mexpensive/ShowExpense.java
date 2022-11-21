@@ -28,7 +28,6 @@ public class ShowExpense extends AppCompatActivity {
                 ExpenseDbHelpler expenseDbHelpler = new ExpenseDbHelpler(ShowExpense.this);
                 Expense exp = list.get(position);
                 expenseDbHelpler.delete("" + exp.getId());
-
             }
         });
     }

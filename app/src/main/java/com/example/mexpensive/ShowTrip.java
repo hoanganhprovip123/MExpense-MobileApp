@@ -3,6 +3,7 @@ package com.example.mexpensive;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,6 +18,7 @@ public class ShowTrip extends AppCompatActivity {
     private ListView listTrip;
     private List<Trip> trips;
     private  TripAdapter tripAdapter;
+    Cursor search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,4 +57,5 @@ public class ShowTrip extends AppCompatActivity {
 
         listTrip.setAdapter(tripAdapter);
     }
+
 }

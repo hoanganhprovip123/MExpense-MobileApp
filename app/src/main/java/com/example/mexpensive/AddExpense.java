@@ -68,15 +68,15 @@ public class AddExpense extends AppCompatActivity implements View.OnClickListene
 
                     Trip trp = (Trip) spTrip.getSelectedItem();
                     exp.setTripId(trp.getTripId());
-                    String msg ;
+                    String message ;
                     if(!isEdit) {
                         expenseDbHelpler.insert(exp);
-                        msg = "Success";
+                        message = "Success";
                     }else{
                         expenseDbHelpler.update(exp);
-                        msg = "Expense have been update";
+                        message = "Updated";
                     }
-                    Snackbar snackbar = Snackbar.make(v,msg,Snackbar.LENGTH_SHORT);
+                    Snackbar snackbar = Snackbar.make(v,message,Snackbar.LENGTH_SHORT);
                     snackbar.show();
                     eExpense.setText("");
                     eAmount .setText("");
@@ -96,7 +96,7 @@ public class AddExpense extends AppCompatActivity implements View.OnClickListene
                     String name = eExpense.getText().toString();
                     expenseDbHelpler.delete(name);
                     ExpenseFilter();
-                    Snackbar snackbar = Snackbar.make(v,"Delete Success",Snackbar.LENGTH_SHORT);
+                    Snackbar snackbar = Snackbar.make(v,"Delete Successfully",Snackbar.LENGTH_SHORT);
                     snackbar.show();
                     eExpense.setText("");
                     eAmount .setText("");

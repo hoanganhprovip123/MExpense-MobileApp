@@ -18,8 +18,8 @@ import java.util.List;
 import kotlin.Suppress;
 
 public class TripDbHelpler {
-
     private SQLiteDatabase db;
+
     public TripDbHelpler(@NonNull Context context){
         DatabaseHelper dbHelper = new DatabaseHelper(context);
         this.db = dbHelper.getWritableDatabase();

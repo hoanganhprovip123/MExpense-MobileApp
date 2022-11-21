@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -23,12 +22,12 @@ import java.util.Calendar;
 
 public class AddTrip extends AppCompatActivity {
 
-    EditText startDate;
-    EditText destination;
-    EditText description;
-    EditText endDate;
+    EditText eStDate;
+    EditText eDest;
+    EditText eDesc;
+    EditText eEndD;
     Switch swRisk;
-    EditText name;
+    EditText eName;
     Context context;
     boolean isEdit = false;
     Button btnSave;
@@ -37,27 +36,26 @@ public class AddTrip extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_trip);
 
-        name = findViewById(R.id.tripname);
-        destination = findViewById(R.id.inputDestination);
-        startDate = findViewById(R.id.inputStartDate);
-        description = findViewById(R.id.inputDescription);
+        eName = findViewById(R.id.tripname);
+        eDest = findViewById(R.id.inputDestination);
+        eStDate = findViewById(R.id.inputStartDate);
+        eDesc = findViewById(R.id.inputDescription);
         swRisk = findViewById(R.id.risk);
         swRisk.setTextOff("No");
         swRisk.setTextOn("Yes");
         swRisk.setShowText(true);
-        startDate.setOnFocusChangeListener((view, b) -> {
+        eStDate.setOnFocusChangeListener((view, b) -> {
             if(b){
                 MyDatePicker dlg = new MyDatePicker();
-                dlg.setExamDate(startDate);
+                dlg.setExamDate(eStDate);
                 dlg.show(getSupportFragmentManager(),"dateTimePicker");
-
             }
         });
-        endDate = findViewById(R.id.inputEndDate);
-        endDate.setOnFocusChangeListener((view, b) -> {
+        eEndD = findViewById(R.id.inputEndDate);
+        eEndD.setOnFocusChangeListener((view, b) -> {
             if(b){
                 MyDatePicker dlg = new MyDatePicker();
-                dlg.setExamDate(endDate);
+                dlg.setExamDate(eEndD);
                 dlg.show(getSupportFragmentManager(),"dateTimePicker");
             }
         });
@@ -66,13 +64,13 @@ public class AddTrip extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Trip trip = new Trip();
-                trip.setNameOfTrip(name.getText().toString());
-                trip.setDestination(destination.getText().toString());
-                trip.setStartDate(startDate.getText().toString());
-                trip.setEndDate(endDate.getText().toString());
+                trip.setNameOfTrip(eName.getText().toString());
+                trip.setDestination(eDest.getText().toString());
+                trip.setStartDate(eStDate.getText().toString());
+                trip.setEndDate(eEndD.getText().toString());
                 trip.setRisk(swRisk.getText().toString());
-                trip.setDescription(description.getText().toString());
-                if(name.getText().toString().equals("") && destination.getText().toString().equals("") && startDate.getText().toString().equals("")){
+                trip.setDescription(eDesc.getText().toString());
+                if(eName.getText().toString().equals("") && eDest.getText().toString().equals("") && eStDate.getText().toString().equals("")){
                     Toast.makeText(AddTrip.this,"Please input information ",Toast.LENGTH_SHORT).show();
                 } else{
                     TripDbHelpler tripDbHelper = new TripDbHelpler(AddTrip.this);

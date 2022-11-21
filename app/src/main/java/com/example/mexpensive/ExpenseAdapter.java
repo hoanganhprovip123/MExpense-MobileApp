@@ -13,22 +13,22 @@ import java.util.List;
 
 public class ExpenseAdapter extends BaseAdapter {
     private Context context;
-    private List<Expense> list;
+    private List<Expense> expenseList;
 
     public ExpenseAdapter(Context context, List<Expense> list){
         this.context = context;
-        this.list = list;
+        this.expenseList = list;
     }
 
 
     @Override
     public int getCount() {
-        return list.size();
+        return expenseList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return list.get(position);
+        return expenseList.get(position);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class ExpenseAdapter extends BaseAdapter {
         }
 
         TextView tvName = view.findViewById(R.id.tvExpense);
-        Expense expense = list.get(position);
+        Expense expense = expenseList.get(position);
 
         tvName.setText(expense.getName());
 

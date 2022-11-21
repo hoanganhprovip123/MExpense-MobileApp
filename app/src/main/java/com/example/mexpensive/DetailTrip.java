@@ -14,7 +14,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.List;
 
 public class DetailTrip extends AppCompatActivity {
-    TextView viewNameOfTrip,viewDest,viewStd,viewEnd,viewRisk,viewDesc;
+    TextView vName, vDest, vStd, vEnd, vRisk, vDesc;
     Button btnDel;
     private List<Trip> list;
 
@@ -24,41 +24,41 @@ public class DetailTrip extends AppCompatActivity {
         setContentView(R.layout.activity_detail_trip);
         Intent intent = getIntent();
 
-        viewNameOfTrip = findViewById(R.id.TripName);
-        viewDest = findViewById(R.id.Dest);
-        viewStd = findViewById(R.id.StDate);
-        viewEnd = findViewById(R.id.EndD);
-        viewRisk = findViewById(R.id.Risk);
-        viewDesc = findViewById(R.id.Desc);
+        vName = findViewById(R.id.TripName);
+        vDest = findViewById(R.id.Dest);
+        vStd = findViewById(R.id.StDate);
+        vEnd = findViewById(R.id.EndD);
+        vRisk = findViewById(R.id.Risk);
+        vDesc = findViewById(R.id.Desc);
 
         TripDbHelpler tripDbHelpler = new TripDbHelpler(this);
         btnDel = findViewById(R.id.btnDeleteTr);
         btnDel.setOnClickListener(v -> {
-            String name = viewNameOfTrip.getText().toString();
+            String name = vName.getText().toString();
             tripDbHelpler.delete(name);
 
             Snackbar snackbar = Snackbar.make(v, "Delete Successfully", Snackbar.LENGTH_SHORT);
             snackbar.show();
-            viewNameOfTrip.setText("");
-            viewDest.setText("");
-            viewStd.setText("");
-            viewEnd.setText("");
-            viewRisk.setText("");
-            viewDesc.setText("");
+            vName.setText("");
+            vDest.setText("");
+            vStd.setText("");
+            vEnd.setText("");
+            vRisk.setText("");
+            vDesc.setText("");
         });
 
         String TripNames =  intent.getStringExtra("name");
         String Dest = intent.getStringExtra("destination");
-        String DateStarts = intent.getStringExtra("startDate");
-        String DateEnds = intent.getStringExtra("endDate");
+        String StDate = intent.getStringExtra("startDate");
+        String EnDate = intent.getStringExtra("endDate");
         String Risk = intent.getStringExtra("risk");
         String Desc = intent.getStringExtra("description");
 
-        viewNameOfTrip.setText(TripNames);
-        viewDest.setText(Dest);
-        viewStd.setText(DateStarts);
-        viewEnd.setText(DateEnds);
-        viewRisk.setText(Risk);
-        viewDesc.setText(Desc);
+        vName.setText(TripNames);
+        vDest.setText(Dest);
+        vStd.setText(StDate);
+        vEnd.setText(EnDate);
+        vRisk.setText(Risk);
+        vDesc.setText(Desc);
     }
 }

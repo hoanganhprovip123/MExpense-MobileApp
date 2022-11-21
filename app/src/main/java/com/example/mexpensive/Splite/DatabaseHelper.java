@@ -69,17 +69,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "   %s TEXT, " +
                     "   %s TEXT)",
             TABLE_TRIPS, TRIP_ID, TRIP_NAME,DESTINATION, START_DATE, END_DATE, RISK_TRIP, DESCRIPTION);
-
-
-
+    
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(EXPENSE_TABLE_CREATE);
         db.execSQL(TRIP_TABLE_CREATE);
 
     }
-
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         String ExpenseSql = "DROP TABLE IF EXISTS Expense";

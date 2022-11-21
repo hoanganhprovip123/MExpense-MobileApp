@@ -13,8 +13,15 @@
         <entry key="..\:/MExpensive(Mobile)/app/src/main/res/layout/activity_add_trip.xml" value="0.3625" />
         <entry key="..\:/MExpensive(Mobile)/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/MExpensive(Mobile)/app/src/main/res/layout/show_trip.xml" value="0.3625" />
+        <entry key="..\:/Users/mocch/Desktop/MExpense-MobileApp/app/src/main/res/layout/activity_add_expense.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/mocch/Desktop/MExpense-MobileApp/app/src/main/res/layout/activity_add_trip.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/mocch/Desktop/MExpense-MobileApp/app/src/main/res/layout/activity_detail_trip.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/mocch/Desktop/MExpense-MobileApp/app/src/main/res/layout/activity_expense_detail.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/mocch/Desktop/MExpense-MobileApp/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/mocch/Desktop/MExpense-MobileApp/app/src/main/res/layout/activity_show_expense.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/mocch/Desktop/MExpense-MobileApp/app/src/main/res/layout/activity_show_trip.xml" value="0.2675925925925926" />
+        <entry key="..\:/Users/mocch/Desktop/MExpense-MobileApp/app/src/main/res/layout/expense_detail.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/mocch/Desktop/MExpense-MobileApp/app/src/main/res/layout/layout_detail_trip.xml" value="0.36102564102564105" />
       </map>
     </option>
   </component>

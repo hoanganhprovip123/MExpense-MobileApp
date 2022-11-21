@@ -21,8 +21,6 @@ public class Expense {
         this.tripId = tripId;
     }
 
-
-
     public Expense() {
     }
 

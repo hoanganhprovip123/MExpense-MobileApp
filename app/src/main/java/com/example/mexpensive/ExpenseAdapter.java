@@ -11,11 +11,11 @@ import com.example.mexpensive.Entities.Expense;
 
 import java.util.List;
 
-public class expenseAdapter extends BaseAdapter {
+public class ExpenseAdapter extends BaseAdapter {
     private Context context;
     private List<Expense> list;
 
-    public  expenseAdapter(Context context,List<Expense> list){
+    public ExpenseAdapter(Context context, List<Expense> list){
         this.context = context;
         this.list = list;
     }
@@ -39,7 +39,7 @@ public class expenseAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         if(view == null) {
-            view = LayoutInflater.from(context).inflate(R.layout.activity_expense_detail,null);
+            view = LayoutInflater.from(context).inflate(R.layout.expense_detail,null);
 
         }
 
@@ -47,8 +47,6 @@ public class expenseAdapter extends BaseAdapter {
         Expense expense = list.get(position);
 
         tvName.setText(expense.getName());
-
-
 
         return view;
     }

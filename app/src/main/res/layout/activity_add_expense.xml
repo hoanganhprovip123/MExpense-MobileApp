@@ -12,33 +12,24 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#1AC1C1"
-            android:text="Create Expense"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="#771E1E"
-            android:textSize="24sp" />
-
 
         <Spinner
             android:id="@+id/spTrip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp" />
+            android:layout_margin="20dp" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
-            android:text="Type Of Expense" />
+            android:text="Type Of Expense"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/inputExpense"
+            android:id="@+id/expense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
@@ -50,10 +41,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
-            android:text="Amount" />
+            android:text="Amount"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/inputAmount"
+            android:id="@+id/amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
@@ -65,10 +58,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
-            android:text="Time" />
+            android:text="Time"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/inputTime"
+            android:id="@+id/time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
@@ -80,10 +75,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
-            android:text="Comment" />
+            android:text="Comment"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/inputComment"
+            android:id="@+id/comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
@@ -93,22 +90,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="115dp"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/btnSave"
-                android:layout_width="match_parent"
+                android:layout_width="132dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
                 android:text="Save" />
 
             <Button
-                android:id="@+id/btnDelete1"
-                android:layout_width="match_parent"
+                android:id="@+id/btnDel"
+                android:layout_width="134dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
                 android:text="Delete" />
-
         </LinearLayout>
 
     </LinearLayout>

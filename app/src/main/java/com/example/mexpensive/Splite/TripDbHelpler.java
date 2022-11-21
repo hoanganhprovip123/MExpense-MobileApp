@@ -17,37 +17,37 @@ import java.util.List;
 
 import kotlin.Suppress;
 
-public class TripDAO {
+public class TripDbHelpler {
 
     private SQLiteDatabase db;
-    public TripDAO(@NonNull Context context){
+    public TripDbHelpler(@NonNull Context context){
         DatabaseHelper dbHelper = new DatabaseHelper(context);
         this.db = dbHelper.getWritableDatabase();
     }
     public long insertTrip(Trip trip) {
         ContentValues values = new ContentValues();
-        values.put("tripName", trip.getTripName());
+        values.put("tripName", trip.getNameOfTrip());
         values.put("destination", trip.getDestination());
         values.put("startDate", trip.getStartDate());
         values.put("endDate", trip.getEndDate());
+        values.put("riskTrip", trip.getRisk());
         values.put("description", trip.getDescription());
-        values.put("vehicle", trip.getVehicle());
 
         return db.insert("Trip", null, values);
     }
     @SuppressLint("Range")
-    public List<Trip> get(String sql, String...selectArgs){
-        List<Trip> trip = new ArrayList<>();
+    public List<Trip> get(String sql, String ...selectArgs){
+        List<Trip> trip = new ArrayList<Trip>();
         Cursor cursor = db.rawQuery(sql, selectArgs);
         while (cursor.moveToNext()){
             Trip tr = new Trip();
             tr.setTripId(cursor.getInt(cursor.getColumnIndex("tripId")));
-            tr.setTripName(cursor.getString(cursor.getColumnIndex("tripName")));
+            tr.setNameOfTrip(cursor.getString(cursor.getColumnIndex("tripName")));
             tr.setDestination(cursor.getString(cursor.getColumnIndex("destination")));
-            tr.setTripName(cursor.getString(cursor.getColumnIndex("startDate")));
-            tr.setTripName(cursor.getString(cursor.getColumnIndex("endDate")));
-            tr.setTripName(cursor.getString(cursor.getColumnIndex("vehicle")));
-            tr.setTripName(cursor.getString(cursor.getColumnIndex("description")));
+            tr.setStartDate(cursor.getString(cursor.getColumnIndex("startDate")));
+            tr.setEndDate(cursor.getString(cursor.getColumnIndex("endDate")));
+            tr.setRisk(cursor.getString(cursor.getColumnIndex("riskTrip")));
+            tr.setDescription(cursor.getString(cursor.getColumnIndex("description")));
             trip.add(tr);
         }
         return trip;
@@ -55,14 +55,14 @@ public class TripDAO {
 
     public long update(Trip trip){
         ContentValues values = new ContentValues();
-        values.put("tripName", trip.getTripName());
+        values.put("tripName", trip.getNameOfTrip());
         values.put("destination", trip.getDestination());
         values.put("startDate", trip.getStartDate());
         values.put("endDate", trip.getEndDate());
-        values.put("vehicle", trip.getVehicle());
+        values.put("riskTrip",trip.getRisk());
         values.put("description", trip.getDescription());
 
-        return db.update("Trip", values, "tripName = ? ", new String[]{trip.getTripName()});
+        return db.update("Trip", values, "tripName = ? ", new String[]{trip.getNameOfTrip()});
     }
 
     public  List<Trip> getTrip(){

@@ -7,119 +7,85 @@
     tools:context=".AddTrip">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Trip's Name"
-            android:textAlignment="center" />
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
         <EditText
             android:id="@+id/tripname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="0dp"
+            android:layout_margin="15dp"
             android:ems="10"
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="0dp"
-            android:text="Destination"
+            android:hint="Name of Trip"
+            android:inputType="textPersonName"
             android:textAlignment="center" />
 
         <EditText
             android:id="@+id/inputDestination"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="0dp"
+            android:layout_margin="15dp"
             android:ems="10"
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="0dp"
-            android:text="Start Date"
+            android:hint="Destination"
+            android:inputType="textPersonName"
             android:textAlignment="center" />
 
         <EditText
             android:id="@+id/inputStartDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="0dp"
+            android:layout_margin="15dp"
             android:ems="10"
-            android:inputType="date" />
-
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="0dp"
-            android:text="End Date"
+            android:hint="Start Date"
+            android:inputType="date"
             android:textAlignment="center" />
 
         <EditText
             android:id="@+id/inputEndDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="0dp"
+            android:layout_margin="15dp"
             android:ems="10"
-            android:inputType="date" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="0dp"
-            android:text="Vehicle"
-            android:textAlignment="center"
-            android:textSize="14sp" />
-
-        <EditText
-            android:id="@+id/inputVehicle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="0dp"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="0dp"
-            android:text="Description"
+            android:hint="End Date"
+            android:inputType="date"
             android:textAlignment="center" />
+
+        <Switch
+            android:id="@+id/risk"
+            android:layout_width="316dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:paddingLeft="20dp"
+            android:showText="true"
+            android:text="Risk"
+            android:textAlignment="viewStart"
+            android:textOff="No"
+            android:textOn="Yes"/>
+
 
         <EditText
             android:id="@+id/inputDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="0dp"
+            android:layout_margin="15dp"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:hint="Description"
+            android:inputType="textPersonName"
+            android:textAlignment="center" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnSave"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Save" />
-
-        </LinearLayout>
+            android:layout_weight="1"
+            android:insetLeft="150dp"
+            android:text="Save" />
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

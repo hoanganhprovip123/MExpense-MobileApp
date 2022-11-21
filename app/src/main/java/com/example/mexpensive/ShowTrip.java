@@ -2,40 +2,33 @@ package com.example.mexpensive;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.mexpensive.Entities.Trip;
-import com.example.mexpensive.Splite.TripDAO;
+import com.example.mexpensive.Splite.TripDbHelpler;
 
 import java.util.List;
 
 public class ShowTrip extends AppCompatActivity {
-    private ListView listTripView;
-    private List<Trip> list;
-    TextView trName, trDest, trStd, trEd, trVeh, tcDesc;
+    private ListView listTrip;
+    private List<Trip> trips;
     private  TripAdapter tripAdapter;
-    private TripDAO tripDAO;
-    final int RESULT_PRODUCT_ACTIVITY= 1;
-    private Context context;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_trip);
-        listTripView =findViewById(R.id.listviewTrip);
+        listTrip = (ListView) findViewById(R.id.listTrip);
 
-        TripDAO dao =new TripDAO(this);
-        List<Trip> trip = dao.getTrip();
+        TripDbHelpler tripDbHelpler =new TripDbHelpler(this);
+        List<Trip> trip = tripDbHelpler.getTrip();
         fillTripToLv();
 
-        listTripView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listTrip.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Trip selectedTrip = trip.get(position);
@@ -43,24 +36,23 @@ public class ShowTrip extends AppCompatActivity {
             }
         });
     }
-
     private void openTripDetail(Trip selectedTrip) {
         Intent intent = new Intent(ShowTrip.this, DetailTrip.class);
-        intent.putExtra("name", selectedTrip.getTripName());
+        intent.putExtra("name", selectedTrip.getNameOfTrip());
         intent.putExtra("destination", selectedTrip.getDestination());
         intent.putExtra("startDate", selectedTrip.getStartDate());
         intent.putExtra("endDate", selectedTrip.getEndDate());
-        //intent.putExtra("risk", selectedTrip.getRisk());
-        intent.putExtra("vehicle", selectedTrip.getVehicle());
+        intent.putExtra("risk", selectedTrip.getRisk());
         intent.putExtra("description", selectedTrip.getDescription());
+
         startActivity(intent);
     }
 
     private void fillTripToLv() {
-        TripDAO dao = new TripDAO(this);
-        list = dao.getTrip();
-        tripAdapter = new TripAdapter(this, list);
+        TripDbHelpler tripDbHelpler = new TripDbHelpler(this);
+        trips = tripDbHelpler.getTrip();
+        tripAdapter = new TripAdapter(this, trips);
 
-        listTripView.setAdapter(tripAdapter);
+        listTrip.setAdapter(tripAdapter);
     }
 }

@@ -1,6 +1,5 @@
 package com.example.mexpensive;
 
-import androidx.annotation.BinderThread;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
@@ -17,31 +16,20 @@ import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.Toast;
 
-import com.example.mexpensive.Entities.Expense;
 import com.example.mexpensive.Entities.Trip;
-import com.example.mexpensive.Splite.TripDAO;
+import com.example.mexpensive.Splite.TripDbHelpler;
 
 import java.util.Calendar;
-import java.util.List;
 
-public class AddTrip extends AppCompatActivity implements View.OnClickListener {
+public class AddTrip extends AppCompatActivity {
 
-    Context context;
     EditText startDate;
     EditText destination;
     EditText description;
     EditText endDate;
+    Switch swRisk;
     EditText name;
-    EditText vehicle;
-
-//    Button btnSave1;
-//    Button btnClose;
-//    List<Expense> expenseList;
-//    List<Trip> tripList;
-//    ListView lvTrip;
-//    TripAdapter tripAdapter;
-
-
+    Context context;
     boolean isEdit = false;
     Button btnSave;
     @Override
@@ -52,8 +40,11 @@ public class AddTrip extends AppCompatActivity implements View.OnClickListener {
         name = findViewById(R.id.tripname);
         destination = findViewById(R.id.inputDestination);
         startDate = findViewById(R.id.inputStartDate);
-        vehicle = findViewById(R.id.inputVehicle);
         description = findViewById(R.id.inputDescription);
+        swRisk = findViewById(R.id.risk);
+        swRisk.setTextOff("No");
+        swRisk.setTextOn("Yes");
+        swRisk.setShowText(true);
         startDate.setOnFocusChangeListener((view, b) -> {
             if(b){
                 MyDatePicker dlg = new MyDatePicker();
@@ -68,32 +59,28 @@ public class AddTrip extends AppCompatActivity implements View.OnClickListener {
                 MyDatePicker dlg = new MyDatePicker();
                 dlg.setExamDate(endDate);
                 dlg.show(getSupportFragmentManager(),"dateTimePicker");
-
             }
         });
-        findViewById(R.id.btnSave).setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btnSave:
-                Trip trip =new Trip();
-                trip.setTripName(name.getText().toString());
+        btnSave = findViewById(R.id.btnSave);
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Trip trip = new Trip();
+                trip.setNameOfTrip(name.getText().toString());
                 trip.setDestination(destination.getText().toString());
                 trip.setStartDate(startDate.getText().toString());
                 trip.setEndDate(endDate.getText().toString());
-                trip.setVehicle(vehicle.getText().toString());
+                trip.setRisk(swRisk.getText().toString());
                 trip.setDescription(description.getText().toString());
                 if(name.getText().toString().equals("") && destination.getText().toString().equals("") && startDate.getText().toString().equals("")){
                     Toast.makeText(AddTrip.this,"Please input information ",Toast.LENGTH_SHORT).show();
                 } else{
-                    TripDAO dao = new TripDAO(this);
-                    dao.insertTrip(trip);
+                    TripDbHelpler tripDbHelper = new TripDbHelpler(AddTrip.this);
+                    tripDbHelper.insertTrip(trip);
                     Toast.makeText(AddTrip.this,"Save",Toast.LENGTH_SHORT).show();
                 }
-                break;
-        }
+            }
+        });
     }
 
     public static class MyDatePicker extends DialogFragment implements DatePickerDialog.OnDateSetListener{

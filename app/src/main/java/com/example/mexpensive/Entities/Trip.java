@@ -2,84 +2,80 @@ package com.example.mexpensive.Entities;
 
 public class Trip {
     private int tripId;
-    private String TripName;
-    private String destination;
-    private String  startDate;
-    private String endDate;
-    private String description;
-    private String vehicle;
+    private String NameOfTrip;
+    private String Destination;
+    private String StartDate;
+    private String EndDate;
+    private String Risk;
+    private String Description;
 
     public Trip() {
     }
 
     public Trip(int tripId, String tripName, String destination,
-                String startDate, String endDate, String description, String vehicle) {
+                String startDate, String endDate, String risk, String description) {
 
         this.tripId = tripId;
-        this.TripName = tripName;
-        this.destination = destination;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.description = description;
-        this.vehicle = vehicle;
+        this.NameOfTrip = tripName;
+        this.Destination = destination;
+        this.StartDate = startDate;
+        this.EndDate = endDate;
+        this.Risk = risk;
+        this.Description = description;
     }
-
-
-
     public int getTripId() {
         return tripId;
     }
 
+    public String getNameOfTrip() {
+        return NameOfTrip;
+    }
+
+    public String getDestination() {
+        return Destination;
+    }
+
+    public String getStartDate() {
+        return StartDate;
+    }
+
+    public String getEndDate() {
+        return EndDate;
+    }
+
+    public String getRisk() {
+        return Risk;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
     public void setTripId(int tripId) {
         this.tripId = tripId;
     }
 
-    public String getTripName() {
-        return TripName;
-    }
-
-    public void setTripName(String tripName) {
-        TripName = tripName;
-    }
-
-    public String getDestination() {
-        return destination;
+    public void setNameOfTrip(String nameOfTrip) {
+        NameOfTrip = nameOfTrip;
     }
 
     public void setDestination(String destination) {
-        this.destination = destination;
-    }
-
-    public String getStartDate() {
-        return startDate;
+        Destination = destination;
     }
 
     public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
-
-    public String getEndDate() {
-        return endDate;
+        StartDate = startDate;
     }
 
     public void setEndDate(String endDate) {
-        this.endDate = endDate;
+        EndDate = endDate;
     }
 
-    public String getDescription() {
-        return description;
+    public void setRisk(String risk) {
+        Risk = risk;
     }
 
     public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getVehicle() {
-        return vehicle;
-    }
-
-    public void setVehicle(String vehicle) {
-        this.vehicle = vehicle;
+        Description = description;
     }
 
 }

@@ -44,8 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TRIP_NAME = "tripName";
     private static final String END_DATE = "endDate";
     private static final String START_DATE = "startDate";
-    //private static final String RISK_TRIP = "riskTrip";
-    private static final String VEHICLE = "vehicle";
+    private static final String RISK_TRIP = "riskTrip";
     private static final String DESCRIPTION = "description";
     private static final String DESTINATION = "destination";
 
@@ -69,7 +68,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "   %s TEXT, " +
                     "   %s TEXT, " +
                     "   %s TEXT)",
-            TABLE_TRIPS, TRIP_ID, TRIP_NAME,DESTINATION, START_DATE,END_DATE,VEHICLE, DESCRIPTION);
+            TABLE_TRIPS, TRIP_ID, TRIP_NAME,DESTINATION, START_DATE, END_DATE, RISK_TRIP, DESCRIPTION);
 
 
 

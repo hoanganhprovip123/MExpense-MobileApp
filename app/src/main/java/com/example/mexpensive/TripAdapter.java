@@ -14,20 +14,20 @@ import java.util.List;
 public class TripAdapter extends BaseAdapter {
 
     private Context context;
-    private List<Trip> list;
+    private List<Trip> trips;
 
     public TripAdapter(Context context, List<Trip> list) {
         this.context = context;
-        this.list = list;
+        this.trips = list;
     }
     @Override
     public int getCount() {
-        return list.size();
+        return trips.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return list.get(position);
+        return trips.get(position);
     }
 
     @Override
@@ -41,13 +41,9 @@ public class TripAdapter extends BaseAdapter {
             convertView= LayoutInflater.from(context).inflate(R.layout.layout_detail_trip,null);
         }
         TextView tvName = convertView.findViewById(R.id.tvTripName);
-        TextView tvDest = convertView.findViewById(R.id.tvDestination);
-        TextView tvStart = convertView.findViewById(R.id.tvStartDate);
+        Trip tr = trips.get(position);
+        tvName.setText(tr.getNameOfTrip());
 
-        Trip tr = list.get(position);
-        tvName.setText(tr.getTripName());
-        tvDest.setText(tr.getDestination());
-        tvStart.setText(tr.getStartDate());
 
         return convertView;
     }

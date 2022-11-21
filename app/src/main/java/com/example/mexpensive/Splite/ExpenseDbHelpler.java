@@ -13,10 +13,10 @@ import com.example.mexpensive.Entities.Expense;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExpenseDAO {
+public class ExpenseDbHelpler {
     private SQLiteDatabase db;
 
-    public ExpenseDAO(@NonNull Context context){
+    public ExpenseDbHelpler(@NonNull Context context){
         DatabaseHelper dbHelper = new DatabaseHelper(context);
         this.db = dbHelper.getWritableDatabase();
     }
@@ -33,7 +33,7 @@ public class ExpenseDAO {
     }
 
     @SuppressLint("Range")
-    public List<Expense> get(String sql, String...selectArgs){
+    public List<Expense> get(String sql, String ... selectArgs){
         List<Expense> listExp = new ArrayList<>();
         Cursor cursor = db.rawQuery(sql, selectArgs);
 
